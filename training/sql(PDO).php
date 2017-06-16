@@ -3,7 +3,7 @@
 require_once('dbConn.php');
 $sql = ("SELECT * FROM `articles_categories` ");
 
-$resault = $conn->query($sql);
+$resault = $pdo->query($sql);
 
 
 ?>
@@ -32,11 +32,11 @@ $resault = $conn->query($sql);
 		<?php 
 		foreach ($resault as $value) {
 			//ДВА СПОСОБА ВЫВОДА КОЛИЧЕСТВА КАТЕГОРИЙ В (),  ПЕРВЫЙ БОЛЕЕ ПРОИЗВОДИТЕЛЬНЫЙ 
-			$articles_count = $conn->query("SELECT COUNT(`id`) AS `total_count` FROM `articles` WHERE `categorie_id` = " . $value['id']);
+			$articles_count = $pdo->query("SELECT COUNT(`id`) AS `total_count` FROM `articles` WHERE `categorie_id` = " . $value['id']);
 			$articles_count->setFetchMode(PDO::FETCH_ASSOC);
 			$row = $articles_count->fetch();
 			echo '<li class="list-group-item">'.$value['id'] .' - '. $value['title']. '( '. $row['total_count'].' )'.'</li>';//rowCount() количество записей в категориях
-			/*$articles_count = $conn->query("SELECT * FROM `articles` WHERE `categorie_id` = " . $value['id']);
+			/*$articles_count = $pdo->query("SELECT * FROM `articles` WHERE `categorie_id` = " . $value['id']);
 			echo '<li class="list-group-item">'.$value['id'] .' - '. $value['title']. '( '. $articles_count->rowCount().' )'.'</li>';//rowCount() количество записей в категориях*/
 		}
 			

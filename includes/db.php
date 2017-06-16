@@ -1,8 +1,7 @@
 <?php
 
 //Подключение к БД
-////ПРАВИЛЬНОЕ ПОДКЛЬЧЕНИЕ К БД С ПОМОШЬЮ PDO
-require_once ('config.php');
+////ПРАВИЛЬНОЕ ПОДКЛЮЧЕНИЕ К БД С ПОМОШЬЮ PDO
 
-$pdo = new PDO($dsn, $userName, $password, $opt);
+$pdo = new PDO($dsn, $config['bd']['userName'], $config['bd']['password'], $opt);
 
