@@ -18,27 +18,21 @@
 						<li class="active"><a target="blank" href="https://github.com/DimaSmile/myBlog">Git</a></li>
 						<li><a target="blank" href="https://smilecats.slack.com/messages/C597T9K7E/">Slack</a></li>
 					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
-						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
 					<ul class="nav navbar-nav navbar-right">
 					<?php 
-						$stmt_q = $pdo->query("SELECT * FROM `articles_categories`", PDO::FETCH_ASSOC);
-						$stmt = [];
-						while ($cat = $stmt_q->fetch()){
-							$stmt[] = $cat;
+						$categories_q = $pdo->query("SELECT * FROM `articles_categories`", PDO::FETCH_ASSOC);
+						$categories = [];
+						while ($cat = $categories_q->fetch()){
+							$categories[] = $cat;
 						}
-						foreach ($stmt as $cat){
+						foreach ($categories as $cat){
 						?>
-							<li><a href="/categorie.php?id=<?php echo $cat['id']; ?>"><?php  echo $cat['title'] ?></a></li>
+							<li><a href="/articles.php?id=<?php echo $cat['id']; ?>"><?php  echo $cat['title'] ?></a></li>
 						<?php
 						} 
 						?>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Info <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 								<li><a href="/pages/aboutMe.php">About me</a></li>
 								<li><a href="/pages/contacts.php">Contacts</a></li>

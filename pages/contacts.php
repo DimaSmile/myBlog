@@ -1,7 +1,7 @@
 <?php require_once('../includes/head.php') ?>
 
 <?php require_once('../includes/navbar.php') ?>
-<h1 class="text-center">Contacts</h1>
+<h2 class="text-center">Contacts</h2>
 <div class="col-md-2"></div>
 <div class="col-md-3">
 	<div class="widget-area no-padding blank">

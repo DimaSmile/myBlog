@@ -1,3 +1,22 @@
+ <footer id="footer">
+ 	<div class="horizontal-menu">
+    	<div class="container">
+	        <div class="footer__logo">
+	         <h2>My Blog</h2>
+	        </div>
+        	<nav class="footer__menu">
+          		<ul>
+		            <li><a href="/">Home</a></li>
+		            <li><a href="/pages/aboutMe.php">About me</a></li>
+		            <li><a href="/pages/contacts.php">My contatcs</a></li>
+		            <li><a href="https://github.com/DimaSmile/myBlog">My Git</a></li>
+          		</ul>
+        	</nav>
+        </div>
+  	</div>
+</footer>
+
+
 <!-- jQuery -->
 		<!-- <script src="//code.jquery.com/jquery.js"></script> -->
 		<!-- Bootstrap JavaScript -->
