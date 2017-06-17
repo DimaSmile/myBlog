@@ -25,11 +25,15 @@
 						<button type="submit" class="btn btn-default">Submit</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-					<?php $stmt = $pdo->query('SELECT * FROM `articles_categories`');
-						while ($row = $stmt->fetch(PDO::FETCH_LAZY))
-						{
+					<?php 
+						$stmt_q = $pdo->query("SELECT * FROM `articles_categories`", PDO::FETCH_ASSOC);
+						$stmt = [];
+						while ($cat = $stmt_q->fetch()){
+							$stmt[] = $cat;
+						}
+						foreach ($stmt as $cat){
 						?>
-							<li><a href="/categorie.php?id=<?php echo $row['id']; ?>">   <?php  echo $row['title'] ?></a></li>
+							<li><a href="/categorie.php?id=<?php echo $cat['id']; ?>"><?php  echo $cat['title'] ?></a></li>
 						<?php
 						} 
 						?>
