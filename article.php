@@ -14,28 +14,33 @@ require_once('includes/config.php');
     <div class="col-md-1"></div>
     <div class="col-md-8">
       <div class="widget-area">
-        <?php $article = $pdo->prepare("SELECT * FROM `articles` WHERE `id` = ?", PDO::FETCH_ASSOC);
-              $article->execute($_GET['id']);  
-        if ($article->fetchColumn() <= 0) {
+        <?php $article = $pdo->prepare("SELECT * FROM `articles` WHERE `id` = ?");
+              $article->execute(array($_GET['id']));  
+
+        if ($article->rowCount() > 0) {
+                $art = $article->fetch();
+                
             ?>
+        <h3><?php echo $art['title']?></h3>
+           <div class="text-right"><a href="" ><?php echo $art['views'] ?> просмотров</a></div>
+              <div class="block__content" >
+                <div class="full-text">
+                    <?php echo $art['text']?>
+                </div>
+                div
+              </div>
+            <?php
+        }else{
+              ?>
             <div class="alert alert-warning">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <strong>Сатьтя не найдена!</strong> Запрашиваемая Вами статья не существует!!!
             </div>
-            <?php
-        }else{
-        ?>
-            <a href=""><?php echo $art['views'] ?>просмотров</a>
-              <h3><?php $art['title']?></h3>
-              <div class="block__content">
-                <img src="/media/images/post-image.jpg">
+            <a class="btn btn-success" href="/" role="button">Home</a>
 
-                <div class="full-text">
-                    <?php $art['text']?>
-                </div>
-              </div>
-    <?php }
-        ?>
+            <?php 
+            } ?>
+        
       </div>
     </div>
     <!-- RIGHT SIDEBAR COMMENTS -->

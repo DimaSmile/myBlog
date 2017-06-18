@@ -245,3 +245,8 @@ body {
 .widget-area h3{
   float: left;
 }
+
+
+.full-text{
+  margin-top: 10px;
+}
