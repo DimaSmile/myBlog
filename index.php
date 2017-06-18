@@ -123,12 +123,4 @@ require_once('includes/config.php');
 		<?php require('includes/sidebar_comments.php') ?>
 	</div>
 </div>
-
-
-
-
-
-		
-
-		
 <?php require_once('includes/footer.php') ?>
