@@ -61,10 +61,10 @@ require_once('includes/config.php');
                         <div class="articles articles__vertical">
                             <?php
 
-                             $comment = $pdo->prepare("SELECT * FROM `comments` WHERE `articles_id` = ? ORDER BY `id` DESC");
-                             $comment->execute(array($art['id']));
-                                if ($comment->rowCount() > 0) {
-                                    while ($art = $comment->fetch()){?>
+                             $comments = $pdo->prepare("SELECT * FROM `comments` WHERE `articles_id` = ? ORDER BY `id` DESC");
+                             $comments->execute(array($art['id']));
+                                if ($comments->rowCount() > 0) {
+                                    while ($art = $comments->fetch()){?>
                                     <article class="article">
                                         <div class="article__image" style="background-image: url(https://s.gravatar.com/avatar/<?php echo md5($art['email']) ?>?s=80"></div>
                                         <div class="article__info">
@@ -94,7 +94,7 @@ require_once('includes/config.php');
                         <?php 
                             if (isset($_POST['do_post'])) {
                                 $errors = [];
-                                if ($_POST['name'] == '') {
+                                if ($_POST['author'] == '') {
                                    $errors[] = 'Введите имя!';
                                 }
                                 if ($_POST['nickname'] == '') {
@@ -116,10 +116,10 @@ require_once('includes/config.php');
                             }
 
                          ?>
-                    <form method="POST" action="article.php?id=<?= $art['id'] ?>#comment-add-form">
+                    <form method="POST" action="article.php?id=<?= $art['id'] ?>">
                         <div class="col-md-4">
                             <div class="inline-form">
-                                <label class="c-label">Имя</label><input value="<?php echo $_POST['name'] ; ?>"  name="name" type="text" placeholder="Имя" />
+                                <label class="c-label">Имя</label><input value="<?php echo $_POST['author'] ; ?>"  name="author" type="text" placeholder="Имя" />
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -138,7 +138,7 @@ require_once('includes/config.php');
                             </div>
                         </div>
                         <div class="col-md-4 ">
-                            <div class=" inline-form">
+                            <div class=" inline" style="margin-top: 5px;">
                                 <button type="submit" class="btn btn-primary" name="do_post">Добавить комментарий</button>
                             </div>
                         </div>                                                                      

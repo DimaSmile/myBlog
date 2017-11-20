@@ -6,8 +6,8 @@ $config = [
 	'bd' => [
 		'server' => 'localhost',
 		'userName' =>'root',
-		'password' => 'dimasql',
-		'name' => 'myBlog',
+		'password' => '',
+		'name' => 'myBlog_db',
 	]
 ];
 

@@ -27,7 +27,7 @@
 						}
 						foreach ($categories as $cat){
 						?>
-							<li><a href="/articles.php?id=<?php echo $cat['id']; ?>"><?php  echo $cat['title'] ?></a></li>
+							<li><a href="/articles.php?categorie=<?php echo $cat['id']; ?>"><?php  echo $cat['title'] ?></a></li>
 						<?php
 						} 
 						?>

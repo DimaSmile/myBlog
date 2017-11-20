@@ -59,9 +59,9 @@ require_once('includes/config.php');
 		<div class="col-md-8">
 			<div class="widget-area">
 			  		<h3>Sport [new]</h3>
-			 		<div class="text-right" ><a href="/articles.php?categorie=1"><button class="btn btn-default large" type="button">All posts</button></a></div>
+			 		<div class="text-right" ><a href="/articles.php?categorie=2"><button class="btn btn-default large" type="button">All posts</button></a></div>
 					<div class="articles articles__horizontal">
-					<?php $articles = $pdo->query("SELECT * FROM `articles` WHERE `categorie_id` = 1 ORDER BY `id` DESC LIMIT 10", PDO::FETCH_ASSOC);
+					<?php $articles = $pdo->query("SELECT * FROM `articles` WHERE `categorie_id` = 2 ORDER BY `id` DESC LIMIT 10", PDO::FETCH_ASSOC);
 						while ($art = $articles->fetch()){?>
 						<article class="article">
 			           		<div class="article__image" style="background-image: url(/public/images/<?php  echo $art['image']; ?>);"></div>
@@ -90,10 +90,10 @@ require_once('includes/config.php');
 			<div class="col-md-1"></div>
 			<div class="widget-area">
 			<h3>Programming [new]</h3>
-		 		<div class="text-right" ><a href="/articles.php?categorie=2"><button class="btn btn-default large" type="button">All posts</button></a></div>
+		 		<div class="text-right" ><a href="/articles.php?categorie=3"><button class="btn btn-default large" type="button">All posts</button></a></div>
 				<div class="articles articles__horizontal">
 					<?php 
-					$articles = $pdo->query("SELECT * FROM `articles` WHERE `categorie_id` = 2 ORDER BY `id` DESC LIMIT 10", PDO::FETCH_ASSOC);
+					$articles = $pdo->query("SELECT * FROM `articles` WHERE `categorie_id` = 3 ORDER BY `id` DESC LIMIT 10", PDO::FETCH_ASSOC);
 						while ($art = $articles->fetch()){?>
 						<article class="article">
 			           		<div class="article__image" style="background-image: url(/public/images/<?php  echo $art['image']; ?>);"></div>
